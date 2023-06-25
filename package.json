@@ -1,0 +1,19 @@
+{
+  "name": "typescript-origamid-pratica",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "dev": "tsc script.ts -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irailtonreis/typescript-origamid-pratica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irailtonreis/typescript-origamid-pratica/issues"
+  },
+  "homepage": "https://github.com/irailtonreis/typescript-origamid-pratica#readme"
+}
