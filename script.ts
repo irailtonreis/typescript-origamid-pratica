@@ -78,9 +78,47 @@
 //         return Number(param)
 //     }
 //     throw new Error("O parâmetro de ser um número ou string");
-    
+
 // }
 
 // console.log(toNumber("9"))
 // console.log(toNumber(10))
 // console.log(toNumber(true))
+
+type Produto = {
+    nome: string;
+    preco: number;
+    teclado: boolean;
+}
+
+function preencherDados(dados: Produto) {
+    document.body.innerHTML += `
+    <div>
+      <h2>${dados.nome}</h2>
+      <p>R$ ${dados.preco}</p>
+      <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
+    </div>
+    `;
+}
+
+const produto: Produto = {
+    nome: 'Computador',
+    preco: 2000,
+    teclado: false,
+}
+
+preencherDados(produto);
+
+preencherDados({
+    nome: 'Notebook',
+    preco: 2500,
+    teclado: true,
+});
+
+type Categorias = "design" | "codigo" | "descod";
+function pintarCategoria(categoria: Categorias) {
+    if (categoria === "design") {
+        console.log("Pintar vermelho");
+    }
+}
+pintarCategoria("design")
