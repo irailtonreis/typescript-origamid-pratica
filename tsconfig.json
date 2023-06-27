@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
     "target": "ESNext", 
-    "strict": false                                   /* Skip type checking all .d.ts files. */
+    "strict": true                    
   }
 }
