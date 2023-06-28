@@ -137,3 +137,9 @@ function mostrarCursos(cursos) {
       </div>`;
     });
 }
+const livro = {};
+const jogo = {
+    nome: 'Ragnarok',
+};
+jogo.nome?.toLowerCase();
+livro.nome?.toLowerCase();

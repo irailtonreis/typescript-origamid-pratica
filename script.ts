@@ -197,3 +197,15 @@ function mostrarCursos(cursos: Cursos[]) {
       </div>`;
   })
 }
+
+interface Product {
+  nome?: string;
+}
+
+const livro: Product = {};
+const jogo: Product = {
+  nome: 'Ragnarok',
+};
+
+jogo.nome?.toLowerCase();
+livro.nome?.toLowerCase();
