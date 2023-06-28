@@ -103,7 +103,7 @@ async function fetchProduct() {
 }
 fetchProduct();
 function showProduct(data) {
-    document.body.innerHTML = `
+    document.body.innerHTML += `
       <div>
         <h2>${data.nome}</h2>
       </div>
@@ -180,4 +180,8 @@ if (produto1 instanceof Produto) {
 }
 if (produto2 instanceof Produto) {
     produto2.nome;
+}
+let link = document.getElementById("origamid");
+if (link instanceof HTMLAnchorElement) {
+    link.href = link.href.replace('http://', 'https://');
 }

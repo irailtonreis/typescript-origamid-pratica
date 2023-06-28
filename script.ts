@@ -150,7 +150,7 @@ interface Produto {
 }
 
 function showProduct(data: Produto) {
-    document.body.innerHTML = `
+    document.body.innerHTML += `
       <div>
         <h2>${data.nome}</h2>
       </div>
@@ -256,3 +256,8 @@ if (produto2 instanceof Produto) {
   produto2.nome;
 }
 
+let link = document.getElementById("origamid")
+
+if (link instanceof  HTMLAnchorElement) {
+  link.href = link.href.replace('http://', 'https://')
+}
