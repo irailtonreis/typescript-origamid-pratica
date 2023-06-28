@@ -85,40 +85,74 @@
 // console.log(toNumber(10))
 // console.log(toNumber(true))
 
-type Produto = {
+// type Produto = {
+//     nome: string;
+//     preco: number;
+//     teclado: boolean;
+// }
+
+// function preencherDados(dados: Produto) {
+//     document.body.innerHTML += `
+//     <div>
+//       <h2>${dados.nome}</h2>
+//       <p>R$ ${dados.preco}</p>
+//       <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
+//     </div>
+//     `;
+// }
+
+// const produto: Produto = {
+//     nome: 'Computador',
+//     preco: 2000,
+//     teclado: false,
+// }
+
+// preencherDados(produto);
+
+// preencherDados({
+//     nome: 'Notebook',
+//     preco: 2500,
+//     teclado: true,
+// });
+
+// type Categorias = "design" | "codigo" | "descod";
+// function pintarCategoria(categoria: Categorias) {
+//     if (categoria === "design") {
+//         console.log("Pintar vermelho");
+//     }
+// }
+// pintarCategoria("design")
+
+
+
+async function fetchProduct() {
+    const response = await fetch('https://api.origamid.dev/json/notebook.json');
+    const data = await response.json();
+    showProduct(data);
+}
+
+fetchProduct();
+
+
+interface Empresa {
+    nome: string;
+    fundacao: number;
+    pais: string;
+}
+
+interface Produto {
     nome: string;
     preco: number;
-    teclado: boolean;
+    descricao: string;
+    seguroAcidente: boolean;
+    empresaFabricante: Empresa;
+    empresaMontadora: Empresa;
 }
 
-function preencherDados(dados: Produto) {
-    document.body.innerHTML += `
-    <div>
-      <h2>${dados.nome}</h2>
-      <p>R$ ${dados.preco}</p>
-      <p>Inclui teclado: ${dados.teclado ? 'sim' : 'não'}</p>
-    </div>
+function showProduct(data: Produto) {
+    document.body.innerHTML = `
+      <div>
+        <h2>${data.nome}</h2>
+      </div>
     `;
 }
-
-const produto: Produto = {
-    nome: 'Computador',
-    preco: 2000,
-    teclado: false,
-}
-
-preencherDados(produto);
-
-preencherDados({
-    nome: 'Notebook',
-    preco: 2500,
-    teclado: true,
-});
-
-type Categorias = "design" | "codigo" | "descod";
-function pintarCategoria(categoria: Categorias) {
-    if (categoria === "design") {
-        console.log("Pintar vermelho");
-    }
-}
-pintarCategoria("design")
