@@ -4,7 +4,7 @@
   "description": "",
   "main": "script.js",
   "scripts": {
-    "dev": "tsc script.ts -w"
+    "dev": "tsc -w"
   },
   "repository": {
     "type": "git",
