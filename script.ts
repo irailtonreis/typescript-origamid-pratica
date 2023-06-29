@@ -125,152 +125,173 @@
 
 
 
-async function fetchProduct() {
-    const response = await fetch('https://api.origamid.dev/json/notebook.json');
-    const data = await response.json();
-    showProduct(data);
-}
+// async function fetchProduct() {
+//     const response = await fetch('https://api.origamid.dev/json/notebook.json');
+//     const data = await response.json();
+//     showProduct(data);
+// }
 
-fetchProduct();
+// fetchProduct();
 
 
-interface Empresa {
-    nome: string;
-    fundacao: number;
-    pais: string;
-}
+// interface Empresa {
+//     nome: string;
+//     fundacao: number;
+//     pais: string;
+// }
 
-interface Produto {
-    nome: string;
-    preco: number;
-    descricao: string;
-    seguroAcidente: boolean;
-    empresaFabricante: Empresa;
-    empresaMontadora: Empresa;
-}
+// interface Produto {
+//     nome: string;
+//     preco: number;
+//     descricao: string;
+//     seguroAcidente: boolean;
+//     empresaFabricante: Empresa;
+//     empresaMontadora: Empresa;
+// }
 
-function showProduct(data: Produto) {
-    document.body.innerHTML += `
-      <div>
-        <h2>${data.nome}</h2>
-      </div>
-    `;
-}
+// function showProduct(data: Produto) {
+//     document.body.innerHTML += `
+//       <div>
+//         <h2>${data.nome}</h2>
+//       </div>
+//     `;
+// }
 
-// se curso inciante Azul / vermelho
-async function fetchCursos() {
-  const response = await fetch('https://api.origamid.dev/json/cursos.json');
-  const data = await response.json();
-  console.log(data)
-  mostrarCursos(data);
-}
+// // se curso inciante Azul / vermelho
+// async function fetchCursos() {
+//   const response = await fetch('https://api.origamid.dev/json/cursos.json');
+//   const data = await response.json();
+//   console.log(data)
+//   mostrarCursos(data);
+// }
 
-fetchCursos();
+// fetchCursos();
 
-interface Cursos {
-  aulas: number;
-  gratuito: boolean;
-  horas: number;
-  idAulas: number [];
-  nivel: 'iniciante' | 'avancado';
-  nome: string; 
-  tags: string []
-}
+// interface Cursos {
+//   aulas: number;
+//   gratuito: boolean;
+//   horas: number;
+//   idAulas: number [];
+//   nivel: 'iniciante' | 'avancado';
+//   nome: string; 
+//   tags: string []
+// }
 
-function mostrarCursos(cursos: Cursos[]) {
-  cursos.forEach((curso) =>{
-    let color;
-    if(curso.nivel === "iniciante"){
-      color = 'blue';
-    }else if(curso.nivel === "avancado"){
-      color = 'red';
+// function mostrarCursos(cursos: Cursos[]) {
+//   cursos.forEach((curso) =>{
+//     let color;
+//     if(curso.nivel === "iniciante"){
+//       color = 'blue';
+//     }else if(curso.nivel === "avancado"){
+//       color = 'red';
+//     }
+
+//     document.body. innerHTML += `
+//       <div>
+//       <h2 style="color: ${color};">${curso.nome}</h2>
+//       <p>Horas: ${curso.horas}</p>
+//       <p>Aulas: ${curso.aulas}</p>
+//       <p>Tipo: ${curso.gratuito ? "Gratuito" : "Pago"}</p>
+//       <p>Tags: ${curso.tags.join(", ")}</>
+//       <p>Aulas: ${curso.idAulas.join(" | ")}</>
+//       </div>`;
+//   })
+// }
+
+// interface Product {
+//   nome?: string;
+// }
+
+// const livro: Product = {};
+// const jogo: Product = {
+//   nome: 'Ragnarok',
+// };
+
+// jogo.nome?.toLowerCase();
+// livro.nome?.toLowerCase();
+
+
+// // Checagem com instanceof 
+
+// class Produto {
+//   nome: string;
+//   constructor(nome: string) {
+//     this.nome = nome;
+//   }
+// }
+
+// class Livro extends Produto {
+//   autor: string;
+//   constructor(nome: string, autor: string) {
+//     super(nome);
+//     this.autor = autor;
+//   }
+// }
+
+// class Jogo extends Produto {
+//   jogadores: number;
+//   constructor(nome: string, jogadores: number) {
+//     super(nome);
+//     this.jogadores = jogadores;
+//   }
+// }
+
+// function buscarProduto(busca: string) {
+//   if (busca === 'O Hobbit') {
+//     return new Livro('O Hobbit', 'J. R. R. Tolkien');
+//   }
+//   if (busca === 'Dark Souls') {
+//     return new Jogo('Dark Souls', 1);
+//   }
+//   return null;
+// }
+
+// const produto1 = buscarProduto('O Hobbit');
+// const produto2 = buscarProduto('Dark Souls');
+
+// if (produto1 instanceof Produto) {
+//   produto1.nome;
+// }
+// if (produto2 instanceof Produto) {
+//   produto2.nome;
+// }
+
+// let link = document.getElementById("origamid")
+
+// if (link instanceof  HTMLAnchorElement) {
+//   link.href = link.href.replace('http://', 'https://')
+// }
+
+// const links = document.querySelectorAll('.link');
+
+// links.forEach((item) => {
+//   if (item instanceof HTMLElement) {
+//     ativarElemento(item);
+//   }
+// });
+
+// function ativarElemento(elemento: HTMLElement) {
+//   elemento.style.color = 'red';
+//   elemento.style.border = '2px solid red';
+// }
+
+const btnMobile = document.getElementById('btn-mobile')
+
+function toggleMenu(event: Event) {
+  const button = event.currentTarget;
+  const nav = document.getElementById('nav')
+  if (button instanceof HTMLElement && nav) {
+    const active = nav.classList.contains("active");
+    if (active) {
+      nav.classList.remove("active");
+      button.setAttribute("aria-expanded", "false")
+      button. setAttribute("aria-label", "Abrir Menu")
+    } else{
+      nav.classList.add("active")
+      button.setAttribute("aria-expanded", "true")
+      button.setAttribute("aria-label", "Fechar Menu")
     }
-
-    document.body. innerHTML += `
-      <div>
-      <h2 style="color: ${color};">${curso.nome}</h2>
-      <p>Horas: ${curso.horas}</p>
-      <p>Aulas: ${curso.aulas}</p>
-      <p>Tipo: ${curso.gratuito ? "Gratuito" : "Pago"}</p>
-      <p>Tags: ${curso.tags.join(", ")}</>
-      <p>Aulas: ${curso.idAulas.join(" | ")}</>
-      </div>`;
-  })
-}
-
-interface Product {
-  nome?: string;
-}
-
-const livro: Product = {};
-const jogo: Product = {
-  nome: 'Ragnarok',
-};
-
-jogo.nome?.toLowerCase();
-livro.nome?.toLowerCase();
-
-
-// Checagem com instanceof 
-
-class Produto {
-  nome: string;
-  constructor(nome: string) {
-    this.nome = nome;
   }
 }
 
-class Livro extends Produto {
-  autor: string;
-  constructor(nome: string, autor: string) {
-    super(nome);
-    this.autor = autor;
-  }
-}
-
-class Jogo extends Produto {
-  jogadores: number;
-  constructor(nome: string, jogadores: number) {
-    super(nome);
-    this.jogadores = jogadores;
-  }
-}
-
-function buscarProduto(busca: string) {
-  if (busca === 'O Hobbit') {
-    return new Livro('O Hobbit', 'J. R. R. Tolkien');
-  }
-  if (busca === 'Dark Souls') {
-    return new Jogo('Dark Souls', 1);
-  }
-  return null;
-}
-
-const produto1 = buscarProduto('O Hobbit');
-const produto2 = buscarProduto('Dark Souls');
-
-if (produto1 instanceof Produto) {
-  produto1.nome;
-}
-if (produto2 instanceof Produto) {
-  produto2.nome;
-}
-
-let link = document.getElementById("origamid")
-
-if (link instanceof  HTMLAnchorElement) {
-  link.href = link.href.replace('http://', 'https://')
-}
-
-const links = document.querySelectorAll('.link');
-
-links.forEach((item) => {
-  if (item instanceof HTMLElement) {
-    ativarElemento(item);
-  }
-});
-
-function ativarElemento(elemento: HTMLElement) {
-  elemento.style.color = 'red';
-  elemento.style.border = '2px solid red';
-}
+btnMobile?.addEventListener('pointerdown', toggleMenu)
