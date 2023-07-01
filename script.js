@@ -264,3 +264,17 @@ function arredondar(valor) {
 }
 console.log(arredondar(200.32));
 console.log(arredondar('200.32'));
+function typeGuard(value) {
+    if (typeof value === 'string') {
+        return value.toLowerCase();
+    }
+    if (typeof value === 'number') {
+        return value.toFixed();
+    }
+    if (value instanceof HTMLElement) {
+        return value.innerText;
+    }
+}
+typeGuard('Origamid');
+typeGuard(200);
+typeGuard(document.body);
