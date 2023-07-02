@@ -219,113 +219,136 @@
 //   elemento.style.color = 'red';
 //   elemento.style.border = '2px solid red';
 // }
-const btnMobile = document.getElementById('btn-mobile');
-function toggleMenu(event) {
-    const button = event.currentTarget;
-    const nav = document.getElementById('nav');
-    if (button instanceof HTMLElement && nav) {
-        const active = nav.classList.contains("active");
-        if (active) {
-            nav.classList.remove("active");
-            button.setAttribute("aria-expanded", "false");
-            button.setAttribute("aria-label", "Abrir Menu");
-        }
-        else {
-            nav.classList.add("active");
-            button.setAttribute("aria-expanded", "true");
-            button.setAttribute("aria-label", "Fechar Menu");
-        }
-    }
-}
-btnMobile?.addEventListener('pointerdown', toggleMenu);
-function normalizar(valor) {
-    if (typeof valor === "string") {
-        return valor.trim().toLowerCase();
-    }
-    else {
-        return valor.map((item) => item.trim().toLowerCase());
-    }
-}
-normalizar(" Produto ");
-normalizar(["Banana ", " UVA"]);
-function $(seletor) {
-    return document.querySelector(seletor);
-}
-$("a")?.href;
-$("video")?.volume;
-$(".teste")?.innerHTML;
-function arredondar(valor) {
-    if (typeof valor === 'number') {
-        return Math.ceil(valor);
-    }
-    else {
-        return Math.ceil(Number(valor)).toString();
-    }
-}
-console.log(arredondar(200.32));
-console.log(arredondar('200.32'));
-function typeGuard(value) {
-    if (typeof value === 'string') {
-        return value.toLowerCase();
-    }
-    if (typeof value === 'number') {
-        return value.toFixed();
-    }
-    if (value instanceof HTMLElement) {
-        return value.innerText;
-    }
-}
-typeGuard('Origamid');
-typeGuard(200);
-typeGuard(document.body);
-async function fetchProduto() {
-    const response = await fetch('https://api.origamid.dev/json/notebook.json');
-    return response.json();
-}
-// Podemos usar o as em diferentes locais.
-async function handleProduto1() {
-    const produto = await fetchProduto();
-    produto.nome;
-}
-async function handleProduto2() {
-    const produto = (await fetchProduto());
-    produto.nome;
-}
-async function handleProduto3() {
-    const produto = await fetchProduto();
-    produto.nome;
-}
-const video1 = document.querySelector('.player');
-const video2 = document.querySelector('.player');
-const video3 = document.querySelector('.player');
-const video4 = document.querySelector('.player');
-video1.volume;
-video2.volume;
-video3?.volume;
-video4.volume;
-function handleClick({ currentTarget, pageX, }) {
-    if (currentTarget instanceof HTMLElement) {
-        currentTarget.innerHTML = `<h1>Mouse Click em x:${pageX}</h1>`;
-    }
-}
-document.documentElement.addEventListener('click', handleClick);
-function comparar(tipo, ...numeros) {
-    if (tipo === 'maior') {
-        return Math.max(...numeros);
-    }
-    if (tipo === 'menor') {
-        return Math.min(...numeros);
-    }
-}
-console.log(comparar('maior', 3, 2, 4, 30, 5, 6, 20));
-console.log(comparar('menor', 3, 2, 4, 1, 5, 6, 20));
-function handleProdutoCarro(dados) {
-    dados.rodas;
-    dados.portas;
-    dados.preco;
-}
-handleProdutoCarro({
-    preco: 20000,
-    rodas: 4,
-    portas: 5,
-});
+// const btnMobile = document.getElementById('btn-mobile')
+// function toggleMenu(event: Event) {
+//   const button = event.currentTarget;
+//   const nav = document.getElementById('nav')
+//   if (button instanceof HTMLElement && nav) {
+//     const active = nav.classList.contains("active");
+//     if (active) {
+//       nav.classList.remove("active");
+//       button.setAttribute("aria-expanded", "false")
+//       button. setAttribute("aria-label", "Abrir Menu")
+//     } else{
+//       nav.classList.add("active")
+//       button.setAttribute("aria-expanded", "true")
+//       button.setAttribute("aria-label", "Fechar Menu")
+//     }
+//   }
+// }
+// btnMobile?.addEventListener('pointerdown', toggleMenu)
+// function normalizar(valor: string): string;
+// function normalizar(valor: string[]): string[];
+// function normalizar(valor: string | string[]): string | string[] {
+//   if (typeof valor === "string") {
+//     return valor.trim().toLowerCase();
+//   } else {
+//     return valor.map((item) => item.trim().toLowerCase());
+//   }
+// }
+// normalizar(" Produto ");
+// normalizar(["Banana ", " UVA"]);
+// // Exemplo 2
+// function $(seletor: "video"): HTMLVideoElement | null;
+// function $(seletor: "div"): HTMLDivElement | null;
+// function $(seletor: "a"): HTMLAnchorElement | null;
+// function $(seletor: string): Element | null;
+// function $(seletor: string): Element | null {
+//   return document.querySelector(seletor);
+// }
+// $("a")?.href;
+// $("video")?.volume;
+// $(".teste")?.innerHTML;
+// function arredondar(valor: string): string;
+// function arredondar(valor: number): number;
+// function arredondar(valor: string | number): string | number {
+//   if (typeof valor === 'number') {
+//     return Math.ceil(valor);
+//   } else {
+//     return Math.ceil(Number(valor)).toString();
+//   }
+// }
+// console.log(arredondar(200.32));
+// console.log(arredondar('200.32'));
+// function typeGuard(value: any) {
+//   if (typeof value === 'string') {
+//     return value.toLowerCase();
+//   }
+//   if (typeof value === 'number') {
+//     return value.toFixed();
+//   }
+//   if (value instanceof HTMLElement) {
+//     return value.innerText;
+//   }
+// }
+// typeGuard('Origamid');
+// typeGuard(200);
+// typeGuard(document.body);
+// interface Produto {
+//   nome: string;
+//   preco: number;
+// }
+// async function fetchProduto() {
+//   const response = await fetch('https://api.origamid.dev/json/notebook.json');
+//   return response.json() as Promise<Produto>;
+// }
+// // Podemos usar o as em diferentes locais.
+// async function handleProduto1() {
+//   const produto = await fetchProduto();
+//   produto.nome;
+// }
+// async function handleProduto2() {
+//   const produto = (await fetchProduto()) as Produto;
+//   produto.nome;
+// }
+// async function handleProduto3() {
+//   const produto = await fetchProduto();
+//   (produto as Produto).nome;
+// }
+// const video1 = document.querySelector('.player') as HTMLVideoElement;
+// const video2 = <HTMLVideoElement>document.querySelector('.player');
+// const video3 = document.querySelector<HTMLVideoElement>('.player');
+// const video4 = document.querySelector('.player');
+// video1.volume;
+// video2.volume;
+// video3?.volume;
+// (video4 as HTMLVideoElement).volume;
+// function handleClick({
+//   currentTarget,
+//   pageX,
+// }: {
+//   currentTarget: EventTarget | null;
+//   pageX: number;
+// }) {
+//   if (currentTarget instanceof HTMLElement) {
+//     currentTarget.innerHTML = `<h1>Mouse Click em x:${pageX}</h1>`;
+//   }
+// }
+// document.documentElement.addEventListener('click', handleClick);
+// function comparar(tipo: 'maior' | 'menor', ...numeros: number[]) {
+//   if (tipo === 'maior') {
+//     return Math.max(...numeros);
+//   }
+//   if (tipo === 'menor') {
+//     return Math.min(...numeros);
+//   }
+// }
+// console.log(comparar('maior', 3, 2, 4, 30, 5, 6, 20));
+// console.log(comparar('menor', 3, 2, 4, 1, 5, 6, 20));
+// type Produto2 = {
+//   preco: number;
+// };
+// type Carro = {
+//   rodas: number;
+//   portas: number;
+// };
+// function handleProdutoCarro(dados: Carro & Produto2) {
+//   dados.rodas;
+//   dados.portas;
+//   dados.preco;
+// }
+// handleProdutoCarro({
+//   preco: 20000,
+//   rodas: 4,
+//   portas: 5,
+// });

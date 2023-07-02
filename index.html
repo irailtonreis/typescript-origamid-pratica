@@ -6,11 +6,24 @@
     <title>TypeScript</title>
 </head>
 <style>
-    /* body{
-        font-size: 1.5rem;
-        font-family: sans-serif;
-        margin: 2rem;
-    } */
+    body {
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    margin: 2rem;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  input {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    min-width: 50vw;
+    max-width: 100%;
+  }
 </style>
 <link rel="stylesheet" href="style.css">
 <body>
@@ -45,7 +58,16 @@
         </nav>
       </header>
       <video class="player"></video>
-       
+
+       <form action="" id="form">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" />
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" />
+      <label for="cpf">CPF</label>
+      <input type="text" id="cpf" name="cpf" />
+</form>
     <script src="./script.js"></script>
+    <script src="./exercicio.js"></script>
 </body>
 </html>
