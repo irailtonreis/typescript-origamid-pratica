@@ -417,3 +417,24 @@ function comparar(tipo: 'maior' | 'menor', ...numeros: number[]) {
 
 console.log(comparar('maior', 3, 2, 4, 30, 5, 6, 20));
 console.log(comparar('menor', 3, 2, 4, 1, 5, 6, 20));
+
+type Produto2 = {
+  preco: number;
+};
+
+type Carro = {
+  rodas: number;
+  portas: number;
+};
+
+function handleProdutoCarro(dados: Carro & Produto2) {
+  dados.rodas;
+  dados.portas;
+  dados.preco;
+}
+
+handleProdutoCarro({
+  preco: 20000,
+  rodas: 4,
+  portas: 5,
+});
