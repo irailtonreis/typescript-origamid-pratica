@@ -500,3 +500,9 @@ async function fetchData<T>(url: string): Promise<T> {
     }
   }
   
+
+import { pluginSlide, URL_BASE } from './pluginSlide.js';
+
+pluginSlide('div');
+
+console.log(URL_BASE);

@@ -1,4 +1,3 @@
-"use strict";
 async function fetchData(url) {
     const base = 'https://api.origamid.dev/json';
     const response = await fetch(base + url);
@@ -33,4 +32,7 @@ function checkInterfaceSimples(obj, key) {
         return false;
     }
 }
+import { pluginSlide, URL_BASE } from './pluginSlide.js';
+pluginSlide('div');
+console.log(URL_BASE);
 //# sourceMappingURL=script.js.map
